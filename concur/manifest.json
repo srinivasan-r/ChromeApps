@@ -1,0 +1,22 @@
+{
+  "name": "Concur",
+  "description": "Concur auto fill",
+  "version": "1.0",
+  "permissions": [
+    "activeTab"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+    "content_scripts": [
+    {
+      "matches": ["https://www.concursolutions.com/Expense/Client/*"],
+      "js": ["jquery-2.1.4.min.js", "content.js"]
+    }
+    ],
+  "browser_action": {
+    "default_title": "Concur auto fill"
+  },
+  "manifest_version": 2
+}

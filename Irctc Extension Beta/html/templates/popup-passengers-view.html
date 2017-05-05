@@ -1,0 +1,27 @@
+<ul class="nav nav-tabs">
+    <li role="presentation"><a href="#/places">Places</a>
+    </li>
+    <li role="presentation" class="active"><a href="#/passengers">Passengers</a>
+    </li>
+</ul>
+<div class="viewcontent">
+    <br>
+    <table class="table table-bordered table-striped">
+        <tbody>
+            <thead>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Mobile</th>
+            </thead>
+            <tr ng-repeat="passenger in psngrCtrl.passengers track by $index" ng-click="psngrCtrl.onPassengerClick($index)">
+                <td>{{passenger.name}}</td>
+                <td>{{passenger.age}}</td>
+                <td>{{passenger.gender}}</td>
+                <td>{{passenger.mobile}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <div align="right">-VS</div>
+</div>

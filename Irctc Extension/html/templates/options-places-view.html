@@ -1,0 +1,76 @@
+<ul class="nav nav-tabs">
+    <li role="presentation" class="active"><a href="#/places">Places</a>
+    </li>
+    <li role="presentation"><a href="#/passengers">Passengers</a>
+    </li>
+    <li role="presentation"><a href="#/variables">Variables</a>
+    </li>
+    <li role="presentation"><a href="#/rawdata">RawData</a>
+    </li>
+</ul>
+<div class="viewcontent">
+    <br>
+    <table class="table table-bordered table-striped">
+        <tbody>
+            <thead>
+                <th>From</th>
+                <th>To</th>
+                <th>Date</th>
+                <th>&nbsp;</th>
+            </thead>
+            <tr ng-repeat="place in placesCtrl.places track by $index" ng-click="placesCtrl.onPlaceClick($index)">
+                <td>{{place.from}}</td>
+                <td>{{place.to}}</td>
+                <td>{{place.date | date: "dd-MM-yyyy"}}</td>
+                <td class="deleteCell">
+                    <img src="../images/DeleteRed.png" alt="Delete" class="delete" ng-click="placesCtrl.onDelete($event,$index)">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">Delete All</td>
+                <td class="deleteCell">
+                    <img src="../images/DeleteRed.png" alt="Delete" class="delete" ng-click="placesCtrl.onDeleteAll()">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <form name="placesCtrl.placeForm" validate>
+        <table>
+            <tr>
+                <div class="form-group">
+                    <td>
+                        <label for="fromTextId">From</label>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" id="fromTextId" placeholder="From Station" ng-model="placesCtrl.place.from" required>
+                    </td>
+                </div>
+            </tr>
+            <tr>
+                <div class="form-group">
+                    <td>
+                        <label for="toTextId">To</label>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" id="toTextId" placeholder="To Station" ng-model="placesCtrl.place.to" required>
+                    </td>
+                </div>
+            </tr>
+            <tr>
+                <div class="form-group">
+                    <td>
+                        <label for="dateTextId">Date</label>
+                    </td>
+                    <td>
+                        <input type="date" min="{{placesCtrl.minDate | date:'yyyy-MM-dd'}}" max="{{placesCtrl.maxDate | date:'yyyy-MM-dd'}}" class="form-control" id="dateTextId" placeholder="DD-MM-YYYY" ng-model="placesCtrl.place.date" required>
+                    </td>
+                </div>
+            </tr>
+            <tr>
+                <td colspan="2" class="submit">
+                    <button ng-click="placesCtrl.onPlacesSave()" class="btn btn-default submit">Save</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>

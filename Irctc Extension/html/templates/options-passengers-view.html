@@ -1,0 +1,88 @@
+<ul class="nav nav-tabs">
+    <li role="presentation"><a href="#/places">Places</a>
+    </li>
+    <li role="presentation" class="active"><a href="#/passengers">Passengers</a>
+    </li>
+    <li role="presentation"><a href="#/variables">Variables</a>
+    </li>
+    <li role="presentation"><a href="#/rawdata">RawData</a>
+    </li>
+</ul>
+<div class="viewcontent">
+    <br>
+    <table id="optionsPassengers" class="table table-bordered table-striped">
+        <thead>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Mobile</th>
+            <th>&nbsp;</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="passenger in psngrCtrl.passengers track by $index" ng-click="psngrCtrl.onPassengerClick($index)">
+                <td>{{passenger.name}}</td>
+                <td>{{passenger.age}}</td>
+                <td>{{passenger.gender}}</td>
+                <td>{{passenger.mobile}}</td>
+                <td class="deleteCell">
+                    <img src="../images/DeleteRed.png" alt="Delete" class="delete" ng-click="psngrCtrl.onDelete($event,$index)">
+                </td>
+            </tr>
+        </tbody>
+        <tr>
+            <td colspan="4">Delete All</td>
+            <td class="deleteCell">
+                <img src="../images/DeleteRed.png" alt="Delete" class="delete" ng-click="psngrCtrl.onDeleteAll()">
+            </td>
+        </tr>
+    </table>
+    <form name="psngrCtrl.passengerForm" validate>
+        <table>
+            <tr>
+                <div class="form-group">
+                    <td>
+                        <label for="nameTextId">Name</label>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" id="nameTextId" ng-model="psngrCtrl.passenger.name" required>
+                    </td>
+                </div>
+            </tr>
+            <tr>
+                <div class="form-group">
+                    <td>
+                        <label for="ageTextId">Age</label>
+                    </td>
+                    <td>
+                        <input type="number" min="1" max="99" class="form-control" id="ageTextId" ng-model="psngrCtrl.passenger.age" required>
+                    </td>
+                </div>
+            </tr>
+            <tr>
+                <div class="form-group">
+                    <td>
+                        <label for="genderTextId">Gender</label>
+                    </td>
+                    <td>
+                        <input type="text" pattern="[MF]" class="form-control" id="genderTextId" placeholder="M or F" ng-model="psngrCtrl.passenger.gender" required>
+                    </td>
+                </div>
+            </tr>
+            <tr>
+                <div class="form-group">
+                    <td>
+                        <label for="mobileTextId">Mobile</label>
+                    </td>
+                    <td>
+                        <input type="number" min="1111111111" max="9999999999" class="form-control" id="mobileTextId" ng-model="psngrCtrl.passenger.mobile" placeholder="10 digits" required>
+                    </td>
+                </div>
+            </tr>
+            <tr>
+                <td colspan="2" class="submit">
+                    <button ng-click="psngrCtrl.onSave()" class="btn btn-default submit">Save</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>

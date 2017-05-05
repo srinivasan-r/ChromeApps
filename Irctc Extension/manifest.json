@@ -1,0 +1,46 @@
+{
+    "name": "IRCTC",
+    "version": "1.0",
+    "description": "Autofill for IRCTC",
+    "background": {
+        "scripts": ["js/background.js"],
+        "persistent": false
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://www.irctc.co.in/*"],
+            "js": ["js/content.js"]
+        }
+    ],
+    "page_action": {
+        "default_icon": "images/icon.png",
+        "default_title": "IRCTC auto fill",
+        "default_popup": "html/popup.html"
+    },
+    "options_page": "html/options.html",
+    "permissions": [
+        "storage",
+        "declarativeContent",
+        "tabs",
+        "https://www.irctc.co.in/*"
+    ],
+    "commands": {
+        "passenger1": {
+          "suggested_key": { "default": "Ctrl+Shift+1" },
+          "description": "First passenger"
+        },
+        "passenger2": {
+          "suggested_key": { "default": "Ctrl+Shift+2" },
+          "description": "Second passenger"
+        },
+        "passenger3": {
+          "suggested_key": { "default": "Ctrl+Shift+3" },
+          "description": "Third passenger"
+        },
+        "passenger4": {
+          "suggested_key": { "default": "Ctrl+Shift+4" },
+          "description": "Fourth passenger"
+        }
+    },
+    "manifest_version": 2
+}

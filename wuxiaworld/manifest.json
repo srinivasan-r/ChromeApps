@@ -1,0 +1,22 @@
+{
+  "name": "Wuxiaworld",
+  "description": "Make the current page red",
+  "version": "1.0",
+  "permissions": [
+    "activeTab"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+    "content_scripts": [
+    {
+      "matches": ["http://gravitytales.com/Novel/martial-world/*"],
+      "js": ["jquery-2.1.4.min.js", "content.js"]
+    }
+    ],
+  "browser_action": {
+    "default_title": "Make this page red"
+  },
+  "manifest_version": 2
+}

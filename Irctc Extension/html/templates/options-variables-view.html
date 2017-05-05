@@ -1,0 +1,32 @@
+<ul class="nav nav-tabs">
+    <li role="presentation"><a href="#/places">Places</a>
+    </li>
+    <li role="presentation"><a href="#/passengers">Passengers</a>
+    </li>
+    <li role="presentation" class="active"><a href="#/variables">Variables</a>
+    </li>
+    <li role="presentation"><a href="#/rawdata">RawData</a>
+    </li>
+</ul>
+<div class="viewcontent">
+    <form name="varsCtrl.varsForm" validate>
+        <table>
+            <tr ng-repeat="variableName in varsCtrl.variableNames">
+                <div class="form-group">
+                    <td>
+                        <label for="{{variableName}}TextId">{{variableName}}</label>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" id="{{variableName}}TextId" ng-model="varsCtrl.vars[variableName]" required>
+                    </td>
+                </div>
+            </tr>
+            <tr>
+                <td colspan="2" class="submit">
+                    <button ng-click="varsCtrl.onVarsSave()" class="btn btn-default submit">Save</button>
+                </td>
+            </tr>
+        </table>
+        {{varsCtrl.vars}}
+    </form>
+</div>

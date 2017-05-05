@@ -1,0 +1,25 @@
+<ul class="nav nav-tabs">
+    <li role="presentation" class="active"><a href="#/places">Places</a>
+    </li>
+    <li role="presentation"><a href="#/passengers">Passengers</a>
+    </li>
+</ul>
+<div class="viewcontent">
+    <br>
+    <table class="table table-bordered table-striped">
+        <tbody>
+            <thead>
+                <th>From</th>
+                <th>To</th>
+                <th>Date</th>
+            </thead>
+            <tr ng-repeat="place in placesCtrl.places track by $index" ng-click="placesCtrl.onPlaceClick($index)">
+                <td>{{place.from}}</td>
+                <td>{{place.to}}</td>
+                <td>{{place.date | date: "dd-MM-yyyy"}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <div align="right">-VS</div>
+</div>

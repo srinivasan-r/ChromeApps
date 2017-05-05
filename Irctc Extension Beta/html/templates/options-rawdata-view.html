@@ -1,0 +1,15 @@
+<ul class="nav nav-tabs">
+    <li role="presentation"><a href="#/places">Places</a>
+    </li>
+    <li role="presentation"><a href="#/passengers">Passengers</a>
+    </li>
+    <li role="presentation"><a href="#/variables">Variables</a>
+    </li>
+    <li role="presentation" class="active"><a href="#/rawdata">RawData</a>
+    </li>
+</ul>
+<div class="viewcontent">
+    <textarea ng-model="rawDataCtrl.rawData" cols="82" rows="10"></textarea>
+    <br>
+    <button ng-click="rawDataCtrl.onUpdate()" class="btn btn-default submit">Update</button>
+</div>
